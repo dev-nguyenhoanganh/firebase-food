@@ -12,11 +12,12 @@
         <input type="text" name="name" placeholder="Product Name">
         <input type="text" name="price" id="" placeholder="Product Price">
         <select name="category" id="category">
-            <option value="fruit">Fruit</option>
-            <option value="vegetable">Vegetable</option>
-            <option value="dairy">Dairy</option>
+            <% for( let category of categories ) { %>
+                <option value="<%= category %>"><%= category %></option>
+            <% } %>
         </select>
         <button>Submit</button>
     </form>
+    <a href="/products">Back</a>
 </body>
 </html>
