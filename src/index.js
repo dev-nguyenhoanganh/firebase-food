@@ -3,8 +3,10 @@ const app = express();
 const path = require('path');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const Product = require('./model/product');
+const { application } = require('express');
 
+const Product = require('./model/product');
+const Farm = require('./model/farm');
 const categories = ['fruit', 'vagetable', 'dairy'];
 
 mongoose.connect('mongodb://localhost:27017/farmStand', {useNewUrlParser: true, useUnifiedTopology: true})
@@ -22,6 +24,40 @@ app.set('view engine', 'ejs');
 app.use(express.urlencoded({extended: true}));
 app.use(methodOverride('_method'));
 
+// Farm route
+app.get('/farms', async (req, resp) => {
+    const farms = await Farm.find({});
+    resp.render('farms/index', { farms })
+})
+app.get('/farms/new', (req, resp) => {
+    resp.render('farms/new');
+})
+app.get('/farms/:id/products/new', (req, resp) => {
+    const { id } = req.params;
+    resp.render('products/new', { categories, id });
+});
+app.post('/farms/:id/products', async (req, resp) => {
+    const { id, name, price, category } = req.body;
+    const farm = await Farm.findById({ id });
+    const product = new Product({ name, price, category });
+    farm.products.push(product);
+    product.farm = farm;
+    await farm.save();
+    await product.save();
+    resp.redirect(`farms/${ id }`);
+});
+app.get('/farms/:id', async (req, resp) => {
+    const farm = await Farm.findById(req.params.id).populate('product');
+    resp.render('farms/show', { farm });
+});
+app.post('/farms', async (req, resp) => {
+    const farm = new Farm(req.body);
+    await farm.save();
+    resp.redirect('farms');
+})
+
+
+// Product route
 app.get('/products', async (req, resp) => {
     const { category } = req.query;
     if (category) {

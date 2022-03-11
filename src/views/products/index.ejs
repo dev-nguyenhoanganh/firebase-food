@@ -10,6 +10,7 @@
     <h1><%= category %>  Products</h1>
     <form action="/products" id="product-filter" method="GET">
         <select name="category" id="" onchange="document.querySelector('#product-filter').submit()">
+            <option value="">All products</option>
             <% for( let item of categories ) { %>
                 <option value="<%= item %>" <%= item == category ? 'selected' : ''%> ><%= item %></option>
             <% } %>
