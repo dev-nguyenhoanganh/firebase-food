@@ -12,7 +12,7 @@ const { campgroundSchema, reviewSchema } = require('./schemas');
  */
 module.exports.isLoggedIn = (req, resp, next) => {
     if (!req.isAuthenticated()) {
-        req.session.returnTo = req.originalUrl;
+        req.session.returnTo = '/login' == req.originalUrl ? '/' : req.originalUrl;
         req.flash('error', 'You must be sign in!');
         resp.redirect('/login');
     } else {

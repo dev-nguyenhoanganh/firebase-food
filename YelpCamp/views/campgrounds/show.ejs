@@ -79,7 +79,7 @@
     <% } %> 
     <% for (let review of campground.reviews) { %> 
       <% var isAuthor = currentUser && currentUser._id.equals(review.author._id); %> 
-      <div class="card text-dark bg-light mb-3">
+      <div class="card mb-3">
         <div class="card-body">
           <p class="starability-result" data-rating="<%= review.rating %>">
             Rated: <%= review.rating %> stars

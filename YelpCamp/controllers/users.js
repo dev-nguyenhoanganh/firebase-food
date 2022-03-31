@@ -21,7 +21,11 @@ module.exports.register = async (req, resp, next) => {
 }
 
 module.exports.renderLogin = (req, resp) => {
-    resp.render('users/login');
+    if (req.isAuthenticated()) {
+        resp.redirect('/campgrounds')
+    } else {
+        resp.render('users/login');
+    }
 }
 
 module.exports.login = (req, resp) => {
@@ -32,7 +36,11 @@ module.exports.login = (req, resp) => {
 }
 
 module.exports.logout = (req, resp) => {
-    req.logout();
-    req.flash('success', 'Goodbye!');
-    resp.redirect('/campgrounds')
+    if (req.isAuthenticated()) {
+        req.logout();
+        req.flash('success', 'Goodbye!');
+        resp.redirect('/campgrounds')
+    } else {
+        resp.redirect('/campgrounds')
+    }
 }

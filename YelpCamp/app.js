@@ -17,7 +17,6 @@ const ExpressError     = require('./utils/ExpressError');
 const campgroundRoutes = require('./routes/campgrounds');
 const reviewRoutes     = require('./routes/reviews');
 const userRoutes       = require('./routes/users');
-const { linesRing } = require('fluent-ffmpeg/lib/utils');
 
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
     useNewUrlParser: true,
