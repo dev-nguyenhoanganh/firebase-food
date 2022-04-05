@@ -56,6 +56,7 @@ input[type="file"]:hover::-webkit-file-upload-button {
 .alert-danger {
   background-color: #bb2d3b;
   color: #FFF;
+  opacity: 0.8;
 }
 .btn-close {
   opacity: 0.75;
@@ -74,8 +75,9 @@ input[type="file"]:hover::-webkit-file-upload-button {
 }
 
 .list-group-item {
-  background-color: #505355;
+  background-color: #414547;
   color: #FFF;
+  border: 1px solid #505355;
 }
 
 .text-muted {
