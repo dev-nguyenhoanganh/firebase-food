@@ -11,6 +11,7 @@ const session          = require('express-session');
 const flash            = require('connect-flash');
 const passport         = require('passport');
 const localStrategy    = require('passport-local');
+const mongoSanitize    = require('express-mongo-sanitize');
 
 const User             = require('./model/user');
 const ExpressError     = require('./utils/ExpressError');
@@ -60,7 +61,8 @@ app.use((req, resp, next) => {
 
 app.use(methodOverride('_method'));
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(mongoSanitize());
 app.use('/campgrounds', campgroundRoutes);
 app.use('/campgrounds/:id/reviews', reviewRoutes);
 app.use('/', userRoutes);
