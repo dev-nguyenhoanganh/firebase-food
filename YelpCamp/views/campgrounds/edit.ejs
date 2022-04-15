@@ -5,7 +5,7 @@
     <form action="/campgrounds/<%= campground._id %>?_method=PUT" method="POST" class="validated-form" enctype="multipart/form-data" novalidate>
       <div class="mb-3">
         <label class="form-label" for="title">Title</label>
-        <input class="form-control" type="text" id="title" name="campground[title]" value="<%= campground.title %>" required>
+        <input autofocus class="form-control" type="text" id="title" name="campground[title]" value="<%= campground.title %>" required>
         <div class="invalid-feedback">Please type something.</div>
         <div class="valid-feedback">Looks good!</div>
       </div>
@@ -31,7 +31,7 @@
         <div class="file-container">
           <% campground.images.forEach((img, i) => { %> 
             <div class="img-item">
-              <span class="file-name"><%= img.filename %></span>
+              <span class="file-name" data-image-url="<%= img.thumbnail_200x200 %> "><%= img.filename %></span>
               <span class="btn --rm-image" data-id="<%= i %>">
                 <svg xmlns="http://www.w3.org/2000/svg" width="18.576" height="20.037" viewBox="0 0 18.576 20.037">
                   <g id="Capa_1" data-name="Capa 1" transform="translate(-229.89 -323.451)">
@@ -41,6 +41,7 @@
                   </g>
                 </svg>
               </span>
+              <div class="img-preview"></div>
             </div>
           <% }); %> 
         </div>
