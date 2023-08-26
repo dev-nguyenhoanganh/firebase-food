@@ -1,45 +1,42 @@
-const mongoose = require('mongoose');
-const cities = require('./cities');
-const { places, descriptors } = require('./seedHelpers');
-const Campground = require('../model/campground');
+const mongoose = require("mongoose");
 
-mongoose.connect('mongodb://localhost:27017/yelp-camp', {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
+const MstInquiryModel = require("../models/mst_inquiry_model");
+const MstContactModel = require("../models/mst_contact_model");
+const MstPostCommonModel = require("../models/mst_post_common_model");
+
+const mstInquirySeed = require("./mst_inquiry_seed");
+const mstContactSeed = require("./mst_contact_seed");
+const mstPostCommonSeed = require("./mst_post_common_seed");
+
+mongoose.connect("mongodb://localhost:27017/yelp-camp", {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
 });
 
 const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error: '));
-db.once('open', () => {
-    console.log('Database Connected');
+db.on("error", console.error.bind(console, "connection error: "));
+db.once("open", () => {
+  console.log("Database Connected");
 });
 
-const sample = array => array[Math.floor(Math.random() * array.length)]
+// const sample = array => array[Math.floor(Math.random() * array.length)]
 
 const seedDB = async () => {
-    await Campground.deleteMany({});
-    for (let i = 0; i < 50; i++) {
-        const random1000 = Math.floor(Math.random() * 1000);
-        const price = Math.floor(Math.random() * 20) + 10;
-        const camp = new Campground({
-            author: '6233488b7382b2d52fbd40f9',
-            location: `${cities[random1000].city}, ${cities[random1000].state}`,
-            title: `${sample(places)} ${sample(descriptors)}`,
-            price: price,
-            description: 'Lorem ipsum dolor sit, amet consectetur adipisicing elit. Laborum saepe iure nemo similique illo perspiciatis rem, quas reiciendis corporis eveniet debitis itaque iste modi ea earum eaque atque porro totam!',
-            images: [
-              {
-                url: 'https://res.cloudinary.com/disdzwovt/image/upload/v1648128372/YelpCamp/kqouq4ad2dvbyn74ojmm.jpg',
-                filename: 'YelpCamp/kqouq4ad2dvbyn74ojmm'
-              },
-              {
-                url: 'https://res.cloudinary.com/disdzwovt/image/upload/v1648128372/YelpCamp/amirr57kfbs1md30q5zi.jpg',
-                filename: 'YelpCamp/amirr57kfbs1md30q5zi'
-              }
-            ]
-        });
-        await camp.save();
-    }
-}
+  await MstInquiryModel.deleteMany({});
+  const mstInquiry = new MstInquiryModel(mstInquirySeed);
+  await mstInquiry.save();
+
+  await MstContactModel.deleteMany({});
+  const mstContact = new MstContactModel(mstContactSeed);
+  await mstContact.save();
+
+  await MstPostCommonModel.deleteMany({});
+  const mstFormNote = new MstPostCommonModel(mstPostCommonSeed.formNote);
+  await mstFormNote.save();
+  const privacyPolicy = new MstPostCommonModel(mstPostCommonSeed.privacyPolicy);
+  await privacyPolicy.save();
+  const comunicationMethod = new MstPostCommonModel(mstPostCommonSeed.comunicationMethod);
+  await comunicationMethod.save();
+};
 
 seedDB();
