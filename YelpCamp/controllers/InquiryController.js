@@ -1,4 +1,4 @@
-const inquiryModel = require('../models/inquiry_model');
+const inquiryModel = require("../models/inquiry_model");
 
 module.exports.createInquiry = async (req, res) => {
     const data = req.body;
@@ -6,13 +6,13 @@ module.exports.createInquiry = async (req, res) => {
         await inquiryModel.create({ ...data });
         return res.status(200).json({
             status: 200,
-            message: "create successfully!"
+            message: "create successfully!",
         });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: "Something went wrong!" });
     }
-}
+};
 
 module.exports.updateInquiry = async (req, res) => {
     const id = req.body._id;
@@ -21,13 +21,13 @@ module.exports.updateInquiry = async (req, res) => {
         await inquiryModel.findByIdAndUpdate(id, { ...data });
         return res.status(200).json({
             status: 200,
-            message: "update successfully!"
-        })
+            message: "update successfully!",
+        });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: "Something went wrong!" });
     }
-}
+};
 
 module.exports.getInquiry = async (req, res) => {
     const { id } = req.params;
@@ -35,23 +35,23 @@ module.exports.getInquiry = async (req, res) => {
         const inquiry = await inquiryModel.findById(id);
         return res.status(200).json({
             status: 200,
-            inquiry
+            inquiry,
         });
     } catch (error) {
         console.log(error);
         return res.status(500).json({ message: "Something went wrong!" });
     }
-}
+};
 
 module.exports.getInquiries = async (req, res) => {
     try {
         const inquiries = await inquiryModel.find({});
         return res.status(200).json({
             status: 200,
-            inquiries
+            inquiries,
         });
     } catch (error) {
         console.log(error);
-        return res.status(500).json({ message: "Something went wrong!"})
+        return res.status(500).json({ message: "Something went wrong!" });
     }
-}
+};

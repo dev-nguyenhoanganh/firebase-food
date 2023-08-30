@@ -1,25 +1,25 @@
-const mongoose              = require('mongoose');
-const Schema                = mongoose.Schema;
+const mongoose = require("mongoose");
+const Schema = mongoose.Schema;
 
 const MstInquirySchema = new Schema({
     inquiryItem: {
-        type    : String,
+        type: String,
         required: true,
     },
     requestContent: {
-        type    : String,
+        type: String,
         required: true,
     },
     name: {
-        type    : String,
+        type: String,
         required: true,
     },
     furigana: {
-        type    : String,
+        type: String,
         required: true,
     },
     emailAddress: {
-        type    : String,
+        type: String,
         required: true,
     },
     address: {
@@ -27,17 +27,17 @@ const MstInquirySchema = new Schema({
         required: true,
     },
     telephoneNumber: {
-        type    : String,
+        type: String,
         required: true,
     },
     preferredContact: {
-        type    : String,
+        type: String,
         required: true,
     },
     contentOfInquiry: {
         type: String,
         required: true,
-    }
-})
+    },
+});
 
-module.exports = mongoose.model('MstInquiry', MstInquirySchema);
+module.exports = mongoose.model("MstInquiry", MstInquirySchema);

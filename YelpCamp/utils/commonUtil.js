@@ -1,5 +1,5 @@
-const _CONF = require('../config')
-const nodemailer = require('nodemailer');
+const _CONF = require("../config");
+const nodemailer = require("nodemailer");
 
 module.exports.sendMail = async (subject, content, email) => {
     try {
@@ -8,19 +8,19 @@ module.exports.sendMail = async (subject, content, email) => {
             port: _CONF.PORT,
             auth: {
                 user: _CONF.GMAIL_EMAIL,
-                pass: _CONF.GMAIL_PASSWORD
+                pass: _CONF.GMAIL_PASSWORD,
             },
-            secureConnection: 'false',
+            secureConnection: "false",
             tls: {
-                ciphers: 'SSLv3'
-            }
+                ciphers: "SSLv3",
+            },
         });
 
         const mailOption = {
             from: `HelloWorld <${_CONF.GMAIL_EMAIL}>`,
             to: email,
             subject: subject,
-            html: content
+            html: content,
         };
 
         await transporter.sendMail(mailOption);
@@ -28,4 +28,4 @@ module.exports.sendMail = async (subject, content, email) => {
         console.log(error);
         throw error;
     }
-}
+};

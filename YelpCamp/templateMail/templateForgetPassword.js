@@ -197,5 +197,5 @@ module.exports.templateForgetPassword = (username, code) => {
         </table>
     </body>
 </html>
-    `
-}
+    `;
+};

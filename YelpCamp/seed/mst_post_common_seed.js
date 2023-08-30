@@ -45,7 +45,7 @@ module.exports.privacyPolicy = {
   type: 2,
 };
 
-module.exports.comunicationMethod = {
+module.exports.communicationMethod = {
   title: "",
   createDate: "2023-08-26 12:45",
   content: JSON.stringify([
@@ -75,4 +75,237 @@ module.exports.comunicationMethod = {
     },
   ]),
   type: 3,
+};
+
+module.exports.homePage = {
+  heading: "不用品・粗大ゴミの回収ならおたすけクリーン",
+  section: [
+    {
+      style: "normal",
+      title: "その不用品の回収、お任せください！",
+      isDisplay: true,
+      content: [
+        {
+          type: "image",
+          data: {
+            file: {
+              url: "image",
+            },
+            caption: "",
+          },
+        },
+        {
+          type: "paragraph",
+          data: {
+            text: "We have been working on this project more than three years. Several large media projects help us to test and debug the Editor, to make it's core more stable. At the same time we significantly improved the API. Now, it can be used to create any plugin for any task. Hope you enjoy. 😏",
+          },
+        },
+      ],
+    },
+    {
+      style: "with-background",
+      title: "追加料金一切なし！",
+      isDisplay: true,
+      content: [
+        {
+          type: "image",
+          data: {
+            file: {
+              url: "image2",
+            },
+            caption: "",
+          },
+        },
+        {
+          type: "paragraph",
+          data: {
+            text: "We have been working on this project more than three years. Several large media projects help us to test and debug the Editor, to make it's core more stable. At the same time we significantly improved the API. Now, it can be used to create any plugin for any task. Hope you enjoy. 😏",
+          },
+        },
+      ],
+    },
+    {
+      style: "list-service",
+      title: "おたすけクリーンのお約束",
+      isDisplay: true,
+      content: [
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image3",
+            title: "最短30分以内に到着！",
+            description:
+              "We have been working on this project more than three years",
+          },
+        },
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image4",
+            title: "24時間年中無休で対応可能！",
+            description:
+              "We have been working on this project more than three years.",
+          },
+        },
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image5",
+            title: "コロナ対策を徹底しています！",
+            description:
+              "We have been working on this project more than three years. ",
+          },
+        },
+      ],
+    },
+    {
+      style: "image-gallery-caption",
+      title: "サービス案内",
+      isDisplay: true,
+      content: [
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image2",
+            title: "最短30分以内に到着！",
+            description:
+              "We have been working on this <strong>project</strong> more than three years",
+          },
+        },
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image2",
+            title: "24時間年中無休で対応可能！",
+            description:
+              "We have been working on this project more than three years.",
+          },
+        },
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image2",
+            title: "コロナ対策を徹底しています！",
+            description:
+              "We have been working on this project more than three years. ",
+          },
+        },
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image2",
+            title: "コロナ対策を徹底しています！",
+            description:
+              "We have been working on this project more than three years. ",
+          },
+        },
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image2",
+            title: "コロナ対策を徹底しています！",
+            description:
+              "We have been working on this project more than three years. ",
+          },
+        },
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image2",
+            title: "コロナ対策を徹底しています！",
+            description:
+              "We have been working on this project more than three years. We have been working on this project more than three years. We have been working on this project more than three years. ",
+          },
+        },
+        {
+          type: "button",
+          data: {
+            style: "red",
+            name: "Button 1",
+          },
+        },
+      ],
+    },
+    {
+      style: "image-gallery",
+      title: "対応エリア",
+      isDisplay: true,
+      content: [
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image2",
+            title: "最短30分以内に到着！",
+            description:
+              "We have been working on this project more than three years",
+          },
+        },
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image2",
+            title: "24時間年中無休で対応可能！",
+            description:
+              "We have been working on this project more than three years.",
+          },
+        },
+      ],
+    },
+    {
+      style: "image-gallery",
+      title: "対応エリア",
+      isDisplay: true,
+      content: [
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            imageURL: "image2",
+            title: "最短30分以内に到着！",
+            description:
+              "We have been working on this project more than three years",
+          },
+        },
+      ],
+    },
+    {
+      style: "list-sub",
+      title: "Title1",
+      isDisplay: true,
+      content: [
+        {
+          type: "list",
+          data: {
+            style: "ordered",
+            title: "キャンペーン実施中！",
+            subTitle: "お得に不用品回収・買取をしませんか？",
+            listContent: [
+              {
+                title: "CAMPAIGN 01",
+                description1:
+                  "見積り時に「ホームページを見た」と お伝えいただければ",
+                description2: "最大10,000円",
+              },
+              {
+                title: "CAMPAIGN 02",
+                description1: "おたすけクリーンをご利用いただいた人の紹介なら",
+                description2: "3,000円OFF",
+              },
+            ],
+          },
+        },
+      ],
+    },
+  ],
 };
