@@ -1,0 +1,190 @@
+{
+	"info": {
+		"_postman_id": "0b49803a-c64c-4ab5-9669-efda78d6b1f6",
+		"name": "Otasuke",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17774113"
+	},
+	"item": [
+		{
+			"name": "http://localhost:3000/api/login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"TruongVanLam\",\r\n    \"password\": \"G7ykCJ58\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/posts",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGQ2NjM2ODcwZmIxM2VlYzM5NjNiZjUiLCJ1c2VybmFtZSI6IlRydW9uZ1ZhbkxhbSIsImVtYWlsIjoiIiwicGhvbmUiOiIiLCJwYXNzd29yZCI6IiQyYSQwNCR5RWlXLy9DS0d6RHR5SjdOQ09zZjEuUnF6SjVFZEVPYktxbGxhMU1meGE3UDBTZXJwNzVjQyIsInNhbHRSb3VuZHMiOiIkMmEkMDQkeUVpVy8vQ0tHekR0eUo3TkNPc2YxLiIsImlhdCI6MTY5MTc1MDQ4NiwiZXhwIjoxNjkxNzUwNDk2fQ.uGXRDMemIKF6eqFPPuIg-8NC5hTomSQRv0ttIInUhSk",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/post",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/logout",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1ZGQ2NjM2ODcwZmIxM2VlYzM5NjNiZjUiLCJ1c2VybmFtZSI6IlRydW9uZ1ZhbkxhbSIsImVtYWlsIjoiIiwicGhvbmUiOiIiLCJwYXNzd29yZCI6IiQyYSQwNCR5RWlXLy9DS0d6RHR5SjdOQ09zZjEuUnF6SjVFZEVPYktxbGxhMU1meGE3UDBTZXJwNzVjQyIsInNhbHRSb3VuZHMiOiIkMmEkMDQkeUVpVy8vQ0tHekR0eUo3TkNPc2YxLiIsImlhdCI6MTY5MTc1MDU5OCwiZXhwIjoxNjkxNzUwNjA4fQ._Mlr9WNuE9vmNaZIY-QhUKefTqYO_oUxbMWeCR5HtAM",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:3000/api/logout",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/inquiry/create",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"inquiryItem\": 1,\r\n    \"requestContent\": \"requestContent\",\r\n    \"name\": \"name\",\r\n    \"furigana\": \"furigana\",\r\n    \"emailAddress\": \"emailAddress\",\r\n    \"telephoneNumber\": \"telephoneNumber\",\r\n    \"preferredContact\": 1,\r\n    \"contentOfInquiry\": \"contentOfInquiry\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/inquiry/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"inquiry",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/forget_password",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"email\": \"truongvanlam176@gmail.com\" \r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/forget_password",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"forget_password"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/mst_info",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/mst_info",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"mst_info"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:3000/api/404_not_found",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/404_not_found",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"404_not_found"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
